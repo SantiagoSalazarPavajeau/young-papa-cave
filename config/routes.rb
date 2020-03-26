@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/welcome', to: 'users#welcome'
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
 

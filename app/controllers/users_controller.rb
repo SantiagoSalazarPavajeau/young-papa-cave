@@ -9,26 +9,28 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
 
         if @user.save
-            #UserMailer.with(user: @user).welcome_email.deliver_later
+            session[:user_id] = @user.id
             redirect_to user_path(@user)
+            #UserMailer.with(user: @user).welcome_email.deliver_later
         else
             render :new
         end
 
     end
 
-    # def show
-    # end
+    def show
+        set_user
+    end
 
-    # private
+    private
 
-    # def user_params
-    #     params.require(:user).permit(:username, :email, :password, :bio)
-    # end
+    def user_params
+        params.require(:user).permit(:username, :email, :password)
+    end
 
-    # def set_user
-    #     @user = User.find(params[:id])
-    # end
+    def set_user
+        @user = User.find(params[:id])
+    end
 
    
 end

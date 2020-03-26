@@ -6,8 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-santi = User.create(username: 'SantiSalazar', email: "santisalazar@ypc.com", password: "1234567", bio: "Father at 19 years old")
+santi = User.create(username: 'SantiSalazar', email: "santisalazar@ypc.com", password: "1234567", bio: "Father at 19 years old.")
 
-hobby = Hobby.create(title: "music", description: "i like to mix technology and music")
+music = Hobby.create(title: "music", description: "I like to mix technology and music.")
 
-project = Project.create(title: "studio", description: "with gear that is either analog or classic", user: santi, hobby: music)
+studio = Project.create(title: "studio", description: "With gear that is either analog or classic.", user: santi, hobby: music)
+
+motorcycles = Hobby.create(title: "motorcycles", description: "Repair easy to fix motorcycle.")
+
+enduro_bike = Project.create(title: "enduro bike", description: "Got a bike needing a motor rebuild.", user: santi, hobby: motorcycles)

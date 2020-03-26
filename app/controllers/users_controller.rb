@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
     # before_action :user_params, :set_user, only: [:show, :edit, :update, :destroy]
 
-    def welcome
-    end
     def new
         @user = User.new
     end

@@ -1,5 +1,5 @@
-<h1><%= @post.title %></h1>
+<h1><%= @project.title %></h1>
  
-<h3>Category: <%= link_to @post.category.name, category_path(@post.category) if @post.category %></h3>
+<h3>Hobby: <%= link_to @project.hobby.title, hobby_path(@project.hobby) if @project.hobby %></h3>
  
-<p><%= @post.description %></p>
+<p><%= @project.description %></p>

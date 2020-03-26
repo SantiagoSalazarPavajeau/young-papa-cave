@@ -3,8 +3,15 @@ class Project < ApplicationRecord
     belongs_to :hobby
 
     validate :is_title_case
-
     before_validation :make_title_case
+
+    def hobby_title=(title)
+        self.hobby = Hobby.find_or_create_by(title: title)
+    end
+
+    def hobby_title
+        self.hobby ? self.hobby.title : nil
+    end
  
     private
     def is_title_case

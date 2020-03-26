@@ -4,7 +4,7 @@ class Hobby < ApplicationRecord
 
     validate :is_title_case
 
-    before_save :make_title_case
+    before_validation :make_title_case
  
     private
     def is_title_case

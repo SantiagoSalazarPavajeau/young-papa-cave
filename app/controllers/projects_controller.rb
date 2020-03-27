@@ -10,7 +10,8 @@ class ProjectsController < ApplicationController
     end
 
     def create
-        @project = Project.new(project_params)
+        @project = Project.new(project_params) #missing build from user
+        byebug
         if @project.save
             redirect_to project_path(@project)
         else

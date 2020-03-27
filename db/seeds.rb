@@ -10,8 +10,8 @@ santi = User.create(username: 'SantiSalazar', email: "santisalazar@ypc.com", pas
 
 music = Hobby.create(title: "music", description: "I like to mix technology and music.")
 
-studio = Project.create(title: "studio", description: "With gear that is either analog or classic.", user: santi, hobby: music)
+studio = Project.create(title: "studio", description: "With gear that is either analog or classic.", user: santi, hobby_title: music.title)
 
 motorcycles = Hobby.create(title: "motorcycles", description: "Repair easy to fix motorcycle.")
 
-enduro_bike = Project.create(title: "enduro bike", description: "Got a bike needing a motor rebuild.", user: santi, hobby: motorcycles)
+enduro_bike = Project.create(title: "enduro bike", description: "Got a bike needing a motor rebuild.", user: santi, hobby_title: motorcycles.title)

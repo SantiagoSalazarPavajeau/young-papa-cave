@@ -1,0 +1,17 @@
+<%= form_for @project do |f|%>
+    <%=f.label :hobby_title%>
+    <%= f.text_field :hobby_title, list: "hobbies_autocomplete" %>
+    <datalist id= "hobbies_autocomplete"> 
+        <%Hobby.all.each do |hobby|%>
+            <option value="<%= hobby.title%> ">
+        <%end%>
+    </datalist>
+
+    <%=f.label :title%>
+    <%= f.text_field :title%>
+
+    <%=f.label :description%>
+    <%= f.text_area :description%>
+
+    <%= f.submit%>
+<% end%>

@@ -10,14 +10,19 @@ class ProjectsController < ApplicationController
     end
 
     def create
-        @project = Project.create(project_params)
+        @project = Project.new(project_params)
+        if @project.save
+            redirect_to project_path(@project)
+        else
+            render :new
+        end
     end
 
     private
 
-    # def project_params
-    #     params.require(:project).permit(:title, :description, :hobby_title)
-    # end
+    def project_params
+        params.require(:project).permit(:title, :description, :hobby_title)
+    end
 
     def set_project
         @project = Project.find(params[:id])

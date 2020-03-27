@@ -1,5 +1,5 @@
-<h1><%= @project.title %></h1>
+<h1><%= @project.title %> Project </h1>
  
-<h3>Hobby: <%= link_to @project.hobby.title, hobby_path(@project.hobby) if @project.hobby %></h3>
+<h3>Belongs to: <%= link_to @project.hobby.title, hobby_path(@project.hobby) if @project.hobby %></h3>
  
 <p><%= @project.description %></p>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>YoungPapaCave</title>
+    <title>YoungPapasHobbies</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,5 +11,8 @@
 
   <body>
     <%= yield %>
+    <% if logged_in?%>
+    <%= link_to "Log Out", logout_path %>
+    <%end%>
   </body>
 </html>

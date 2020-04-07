@@ -1,6 +1,10 @@
 class ProjectsController < ApplicationController
     # before_action :project_params, :set_project, only: [:edit, :update, :show, :destroy]
 
+    def index
+        @projects = Project.all
+    end
+    
     def show
         @project = Project.find(params[:id])
     end

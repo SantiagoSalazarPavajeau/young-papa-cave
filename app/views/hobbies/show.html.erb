@@ -1,14 +1,17 @@
-<%=@hobby.title%> 
+Hobby: <%=@hobby.title%> 
 
 <br><br>
 
-
+Projects:
+<ul>
 <%@hobby.projects.each do |project|%>
 
-    <%= project.title %><br><br>
-    <%= project.description%><br><br>
+    <li> <%= project.title %>:  <%= project.description%><br> </li>
+   
+    by: <%= link_to project.user.username, project.user%><br><br>
 
 <%end%>
+</ul>
 
 <br><br>
 

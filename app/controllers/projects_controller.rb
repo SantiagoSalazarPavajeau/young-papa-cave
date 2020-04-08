@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
     def create
         @project = current_user.projects.create(project_params)
         redirect_to user_project_path(current_user, @project)
-        #use "hobby_title" to create a hobby
+        #use "hobby_title" to create a hobby it seems its already creating a hobby
     end
 
     private

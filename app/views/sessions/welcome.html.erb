@@ -1,4 +1,6 @@
 <h1> Welcome! </h1>
+<% if !logged_in?%>
 <%=link_to "Click Here To Sign Up", signup_path%> <br>
 <%=link_to "Click Here To Log In", login_path%>
+<%end%>
 

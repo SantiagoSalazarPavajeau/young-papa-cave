@@ -9,11 +9,12 @@ Rails.application.routes.draw do
 
 
 
-  resources :projects
-  resources :hobbies
   resources :users do
     resources :projects, only: [:show, :index, :new]
   end
+
+  resources :projects
+  resources :hobbies
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

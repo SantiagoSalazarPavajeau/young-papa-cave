@@ -1,4 +1,4 @@
-<h1> <%= @user.username%> </h1>
+<h1> Hey! <%= @user.username%> </h1>
 <h2> <%= @user.bio%> </h2>
 <%= link_to 'My Projects', user_projects_path(@user)%><br>
 <%= link_to 'Add new project', new_user_project_path(@user) %><br><br>

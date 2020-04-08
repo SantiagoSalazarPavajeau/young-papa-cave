@@ -1,4 +1,7 @@
-<%@projects.each do |project|%>
-    <%= link_to project.title, project%><br>
-    <%= project.description%> <br> <br>
+<%all_hobbies.each do |hobby|%>
+    <h2><%= link_to hobby.title, hobby%></h2> <br>
+    <% hobby.projects.each do |project|%>
+        <%= link_to project.title, project%><br>
+        <%= project.description%> <br> <br>
+    <%end%>
 <%end%>

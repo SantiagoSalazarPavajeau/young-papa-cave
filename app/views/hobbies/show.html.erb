@@ -1,0 +1,14 @@
+<%=@hobby.title%> 
+
+<br><br>
+
+
+<%@hobby.projects.each do |project|%>
+
+    <%= project.title %><br><br>
+    <%= project.description%><br><br>
+
+<%end%>
+
+<br><br>
+

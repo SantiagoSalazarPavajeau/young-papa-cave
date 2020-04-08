@@ -11,16 +11,12 @@ class ProjectsController < ApplicationController
 
     def new
         @project = Project.new
+        @hobbies = Hobby.all
     end
 
     def create
-        @project = Project.new(project_params) #missing build from user
-        byebug
-        if @project.save
-            redirect_to project_path(@project)
-        else
-            render :new
-        end
+        @project = current_user.projects.create(project_params)
+        redirect_to user_project_path(current_user, @project)
     end
 
     private

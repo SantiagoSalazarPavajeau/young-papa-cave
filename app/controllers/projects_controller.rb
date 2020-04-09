@@ -5,7 +5,10 @@ class ProjectsController < ApplicationController
         user = User.find_by(id: params[:user_id])
         if user
             @projects = user.projects
+        else
+            redirect_to root_path
         end
+        # add no user else statement
     end
     
     def show

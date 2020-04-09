@@ -1,6 +1,8 @@
 class Project < ApplicationRecord
     belongs_to :user
     belongs_to :hobby
+    validates :title, presence: true
+    validates :description, presence: true, length: {minimum: 100}
 
    
 

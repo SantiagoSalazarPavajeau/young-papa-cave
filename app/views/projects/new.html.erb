@@ -1,18 +1,23 @@
 <%= form_for @project do |f|%>
     <%=f.label :hobby_title%>
     <%= f.text_field :hobby_title, list: "hobbies_autocomplete" %>
-    <datalist id= "hobbies_autocomplete"> 
-        <%@hobbies.each do |hobby|%>
-            <option value="<%= hobby.title%> ">
-        <%end%>
-    </datalist>
-
+        <datalist id= "hobbies_autocomplete"> 
+            <%@hobbies.each do |hobby|%>
+                <option value="<%= hobby.title%> ">
+            <%end%>
+        </datalist>
+    <br><br><br>
     Project
     <%=f.label :title%>
     <%= f.text_field :title%>
-
+    <br><br>
     <%=f.label :description%>
     <%= f.text_area :description%>
+    <br><br>
+    <%if flash[:notice]%>
+    **** <%=  flash[:notice] %> ****
+    <br><br>
+    <%end%>
 
     <%= f.submit%>
 <% end%>

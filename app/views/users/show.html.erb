@@ -1,5 +1,18 @@
-<h1> Hey! <%= @user.username%> </h1>
+<% if current_user == @user%>
+    <h1> Hey! <%= @user.username %> </h1> 
+<% else %>
+    <h1> Profile for: </h1> 
+    <h1> <%= @user.username %> </h1> 
+<% end %>
+
 <h2> <%= @user.bio%> </h2>
-<%= link_to 'My Projects', user_projects_path(@user)%><br>
+
+<%= link_to "#{@user.username}'s Projects", user_projects_path(@user)%><br>
+
+<% if current_user == @user%>
+
 <%= link_to 'Add new project', new_user_project_path(@user) %><br><br>
+
+<% end %>
+
 <%= link_to 'All Hobbies', hobbies_path%><br><br>

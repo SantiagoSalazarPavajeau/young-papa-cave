@@ -1,6 +1,14 @@
 <% @hobbies.each do |hobby|%>
 
-<%= link_to hobby.title, hobby%>
+<%= link_to hobby.title, hobby%> <br>
+
+<ul>
+
+    <% hobby.projects.each do |project| %>
+        <li> <%=link_to project.title, project%> by: <%= link_to project.user.username, project.user%>  </li>
+    <%end%>
+
+</ul>
 
 <br><br>
 

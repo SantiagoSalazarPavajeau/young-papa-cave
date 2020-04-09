@@ -22,3 +22,5 @@ Confirm:
 - [ ] Limited logic in controllers
 - [ ] Views use helper methods if appropriate
 - [ ] Views use partials if appropriate
+
+# add form fields to projects to give updates on projects

@@ -24,3 +24,5 @@ Confirm:
 - [ ] Views use partials if appropriate
 
 # add form fields to projects to give updates on projects
+# ratings
+# 

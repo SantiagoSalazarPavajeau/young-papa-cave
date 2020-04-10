@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-    # before_action :project_params, :set_project, only: [:edit, :update, :show, :destroy]
+    # before_action :set_project
 
     def index
         user = User.find_by(id: params[:user_id])
@@ -8,7 +8,6 @@ class ProjectsController < ApplicationController
         else
             redirect_to root_path
         end
-        # add no user else statement
     end
     
     def show
@@ -29,6 +28,20 @@ class ProjectsController < ApplicationController
         end
         #use "hobby_title" to create a hobby it seems its already creating a hobby
     end
+
+    def edit
+        if current_user == @project.user
+            @project = Project.find(params[:id])
+        else
+            redirect_to user_path(@project.user)
+        end
+    end
+
+    def update
+        @project.update(project_params)
+        redirect_to user_project_path(current_user, @project)
+    end
+
 
     private
 

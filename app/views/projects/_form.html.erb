@@ -3,7 +3,7 @@
     <%=f.label :hobby_title%>
     <%= f.text_field :hobby_title, list: "hobbies_autocomplete" %>
         <datalist id= "hobbies_autocomplete"> 
-            <%@hobbies.each do |hobby|%>
+            <%all_hobbies.each do |hobby|%>
                 <option value="<%= hobby.title%> ">
             <%end%>
         </datalist>

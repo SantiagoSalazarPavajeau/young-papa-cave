@@ -1,6 +1,9 @@
     <% @projects.each do |project|%>
 
-        <%= link_to project.title, project%><br> <%= link_to 'Edit', edit_project_path(project)%>
+        <%= link_to project.title, user_project_path(project.user, project) %><br> 
+                
         <%= project.description%> <br>
+
         <%= link_to project.hobby.title, project.hobby%><br> <br>
+
     <%end%>

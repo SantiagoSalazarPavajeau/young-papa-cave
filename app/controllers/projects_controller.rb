@@ -2,9 +2,9 @@ class ProjectsController < ApplicationController
     # before_action :set_project
 
     def index
-        user = User.find_by(id: params[:user_id])
-        if user
-            @projects = user.projects
+        @user = User.find_by(id: params[:user_id])
+        if @user
+            @projects = @user.projects
         else
             redirect_to root_path
         end
@@ -49,6 +49,11 @@ class ProjectsController < ApplicationController
         end
     end
 
+    def destroy
+        @project = Project.find(params[:id])
+        @project.delete
+        redirect_to user_path(current_user)
+    end
 
     private
 

@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
         if @project.save
             redirect_to user_project_path(current_user, @project)
         else
-            redirect_to new_user_project_path(current_user), notice: 'The project needs a title, a 100 character description and a hobby it belongs to'
+            redirect_to new_user_project_path(current_user), notice: 'The project needs a title, a 50 character description and a hobby it belongs to'
         end
         #use "hobby_title" to create a hobby it seems its already creating a hobby
     end
@@ -42,7 +42,11 @@ class ProjectsController < ApplicationController
     def update
         @project = Project.find(params[:id])
         @project.update(project_params)
-        redirect_to user_project_path(current_user, @project)
+        if @project.save
+            redirect_to user_project_path(current_user, @project)
+        else
+            redirect_to edit_project_path(@project), notice: 'Could not update the project: It needs a title, a 50 character description and a hobby it belongs to'
+        end
     end
 
 

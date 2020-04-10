@@ -1,5 +1,6 @@
     <% @projects.each do |project|%>
-        <%= link_to project.title, project%><br>
+
+        <%= link_to project.title, project%><br> <%= link_to 'Edit', edit_project_path(project)%>
         <%= project.description%> <br>
         <%= link_to project.hobby.title, project.hobby%><br> <br>
     <%end%>

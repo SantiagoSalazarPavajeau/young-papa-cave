@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-    # before_action :set_project
+    before_action :set_project
 
     def index
         user = User.find_by(id: params[:user_id])
@@ -30,6 +30,7 @@ class ProjectsController < ApplicationController
     end
 
     def edit
+        @hobbies = Hobby.all
         if current_user == @project.user
             @project = Project.find(params[:id])
         else

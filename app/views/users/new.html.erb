@@ -1,14 +1,13 @@
-<h1>Welcome! Create an account</h1>
+<h1>Welcome! Create an account:</h1>
 <%= form_for @user, url: '/signup' do |f|%>
-    <br>
     <%= f.label :username%>
     <%= f.text_field :username%>
     <br>
     <%= f.label :password%>
     <%= f.password_field :password%>
-    <br>
+    <br><br>
     <%= f.submit%>
 
 <%end%>
-<br>
+<br><br>
 <%= link_to('Sign up with Facebook!', '/auth/facebook') %>

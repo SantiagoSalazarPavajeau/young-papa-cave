@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
     end
 
     def create
-        if auth['uid']
+        if auth
             @user = User.find_or_create_by(username: auth['info']['name'])
             @user.password = SecureRandom.hex(9)
             if @user.save

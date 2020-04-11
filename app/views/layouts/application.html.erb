@@ -15,19 +15,23 @@
   </head>
 
   <body>
-  <nav>
-    <% if logged_in?%>
-      <%= link_to "Home", user_path(current_user) %>
-    <%else%>
-     <%= link_to "Home", root_path %>
-    <%end%>
-    <% if logged_in?%>
-      <%= link_to "Log Out", logout_path %>
-    <%end%>
-    <% if !logged_in?%>
-      <%=link_to "Click Here To Sign Up", signup_path%> <br>
-      <%=link_to "Click Here To Log In", login_path%>
-    <%end%>
+  <nav class="blue-grey darken-1">
+    <div class="container">
+      <% if logged_in?%>
+        <%= link_to "Home", user_path(current_user), class: "brand-logo" %>
+      <%else%>
+        <%= link_to "Home", root_path, class: "brand-logo" %>
+      <%end%>
+
+      <ul class="right">
+      <% if !logged_in?%>
+        <li> <%=link_to "Sign Up", signup_path%> </li>
+        <li> <%=link_to "Log In", login_path%> </li>
+      <%else%>
+        <li> <%= link_to "Log Out", logout_path %></li>
+      <%end%>
+      </ul>
+    </div>
   </nav>
 
     <br><br>

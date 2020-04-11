@@ -7,22 +7,38 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    
+            
   </head>
 
   <body>
-
+  <nav>
     <% if logged_in?%>
-    <%= link_to "Home", user_path(current_user) %>
+      <%= link_to "Home", user_path(current_user) %>
     <%else%>
-    <%= link_to "Home", root_path %>
+     <%= link_to "Home", root_path %>
     <%end%>
+    <% if logged_in?%>
+      <%= link_to "Log Out", logout_path %>
+    <%end%>
+    <% if !logged_in?%>
+      <%=link_to "Click Here To Sign Up", signup_path%> <br>
+      <%=link_to "Click Here To Log In", login_path%>
+    <%end%>
+  </nav>
 
     <br><br>
     
     <%= yield %>
     <br><br>
-    <% if logged_in?%>
-    <%= link_to "Log Out", logout_path %>
-    <%end%>
+    
+    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 </html>

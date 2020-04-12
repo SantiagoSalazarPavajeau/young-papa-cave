@@ -1,18 +1,51 @@
-<% if current_user == @user%>
-    <h1> Hey! <%= @user.username %> </h1> 
-<% else %>
-    <h1> Profile for: </h1> 
-    <h1> <%= @user.username %> </h1> 
-<% end %>
 
-<h2> <%= @user.bio%> </h2>
 
-<%= link_to "#{@user.username}'s Projects", user_projects_path(@user)%><br>
 
-<% if current_user == @user%>
 
-<%= link_to 'Add new project', new_user_project_path(@user) %><br><br>
 
-<% end %>
 
-<%= link_to 'All Hobbies', hobbies_path%><br><br>
+
+<div id="profile-page-header" class="card">
+                <div class="card-content">
+                  <div class="row">                    
+                    <div class="col s6 offset-s2">                        
+                        <h4 class="card-title grey-text text-darken-4">
+                        <% if current_user == @user%>
+                             Hey! <%= @user.username %> 
+                        <% else %>
+                        <%= @user.username %>
+                        <% end %>
+                        </h4>
+                        <p class="medium-small grey-text">Username</p>                        
+                    </div>
+                    <div class="col s2 center-align">
+                        <h4 class="card-title grey-text text-darken-4">
+                        <%= link_to @user.projects.count, user_projects_path(@user)%><br>
+                        </h4>
+                        <p class="medium-small grey-text">Projects</p>                        
+                    </div>               
+                                   
+                    <div class="col s1 right-align">
+                      <a class="btn-floating activator waves-effect waves-light darken-2 right">
+                          <i class="mdi-action-perm-identity"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-reveal">
+                    <p>
+                      <span class="card-title grey-text text-darken-4"><%=@user.username%> <i class="mdi-navigation-close right"></i></span>
+                      <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i><%=link_to 'Projects', user_projects_path(@user)%></span>
+                    </p>
+
+                    <p><%=@user.bio%></p>
+                    
+                    <p><i class="cyan-text text-darken-2"></i> 
+                    <% if current_user == @user%>
+
+                        <%= link_to 'Add new project', new_user_project_path(@user) %>
+
+                    <% end %>
+                    </p>
+                </div>
+            </div>

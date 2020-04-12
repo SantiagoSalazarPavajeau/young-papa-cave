@@ -9,23 +9,31 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-   
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   </head>
 
   <body >
     <nav class="blue-grey darken-1">
       <div class="container">
+
+        <ul class="left">
         <% if logged_in?%>
-          <%= link_to "Home", user_path(current_user), class: "brand-logo" %>
+          <li><%= link_to "Home", user_path(current_user), class: "brand-logo" %> </li>
+
         <%else%>
-          <%= link_to "Home", root_path, class: "brand-logo" %>
+          <li><%= link_to "Home", root_path, class: "brand-logo" %></li>
+          
         <%end%>
+        </ul>
 
         <ul class="right">
         <% if !logged_in?%>
+          <li><%= link_to 'All Hobbies', hobbies_path%></li>
           <li> <%=link_to "Sign Up", signup_path%> </li>
           <li> <%=link_to "Log In", login_path%> </li>
         <%else%>
+          <li><%= link_to 'All Hobbies', hobbies_path%></li>
           <li> <%= link_to "Log Out", logout_path %></li>
         <%end%>
         </ul>

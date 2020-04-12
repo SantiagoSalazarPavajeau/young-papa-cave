@@ -1,15 +1,27 @@
 <% @hobbies.each do |hobby|%>
+           <div class="row">
+                <div class="col s12">
+                    <div class="card teal lighten-4 z-depth-5">
+                        <div class="card-content white-text">
+                            <span class="card-title"><%= link_to hobby.title, hobby, class: "white-text"%></span>
+                                <ul>
+                                <% hobby.projects.each do |project| %>
 
-<%= link_to hobby.title, hobby%> <br>
+                                    <li> <%= link_to project.title, project.title, class: "white-text"%>
+                                    by: <%= link_to project.user.username, project.user, class: "white-text"%></li>
+                                    <br>
+                                <% end %>                                
 
-<ul>
+                                </ul>
+                                
 
-    <% hobby.projects.each do |project| %>
-        <li> <%=link_to project.title, project%> by: <%= link_to project.user.username, project.user%>  </li>
-    <%end%>
 
-</ul>
+                                    
 
-<br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
 <%end%>

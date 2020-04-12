@@ -12,8 +12,9 @@ Projects:
 
 <%end%>
 </ul>
-
-<%= link_to 'Delete Hobby', hobby_path(@hobby), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%>
+<% if !@hobby.projects%>
+    <%= link_to 'Delete Hobby', hobby_path(@hobby), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%>
+<% end%>
 
 <br><br>
 

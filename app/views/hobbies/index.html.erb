@@ -1,27 +1,36 @@
+                <table class="centered highlight">
+        <thead>
+          <tr>
+              <th>Project</th>
+              <th>Owner</th>
+              <th>Hobby</th>
+          </tr>
+        </thead>
 <% @hobbies.each do |hobby|%>
-           <div class="row">
-                <div class="col s12">
-                    <div class="card teal lighten-4 z-depth-5">
-                        <div class="card-content white-text">
-                            <span class="card-title"><%= link_to hobby.title, hobby, class: "white-text"%></span>
-                                <ul>
-                                <% hobby.projects.each do |project| %>
-
-                                    <li> <%= link_to project.title, project.title, class: "white-text"%>
-                                    by: <%= link_to project.user.username, project.user, class: "white-text"%></li>
-                                    <br>
-                                <% end %>                                
-
-                                </ul>
-                                
+<%# link_to hobby.title, hobby, class: "black-text"%>
 
 
+
+
+
+                        <% hobby.projects.each do |project| %>
+
+
+        <tbody>
+          <tr>
+            <td><%= link_to project.title, project.title%></td>
+            <td><%= link_to project.user.username, project.user%></td>
+            <td><%= project.hobby.title%> </td>
+          </tr>
+          
+        </tbody>
+
+                               
                                     
+                                <% end %>   
+                             
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
+                                
 <%end%>
+
+  </table>

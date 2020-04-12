@@ -1,11 +1,31 @@
     <%= link_to 'Back', user_path(@user)%> <br><br>
 
+    <h2><%= @user.username%>'s Projects</h2>
+
+    <table class="centered highlight">
+        <thead>
+          <tr>
+              <th>Project</th>
+              <th>Description</th>
+              <th>Hobby</th>
+          </tr>
+        </thead>
+
     <% @projects.each do |project|%>
 
-        <%= link_to project.title, user_project_path(project.user, project) %><br> 
-                
-        <%= project.description%> <br>
+    <tbody>
+          <tr>
+            <td><%= link_to project.title, user_project_path(project.user, project) %></td>
+            <td> <%= project.description%></td>
+            <td><%= link_to project.hobby.title, project.hobby%> </td>
+          </tr>
+          
+        </tbody>
 
-        <%= link_to project.hobby.title, project.hobby%><br> <br>
+                
+        
+
+        
 
     <%end%>
+</table>

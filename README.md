@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project uses Rails 6.0.2.2 and ruby 2.6.1p33. 
 
-Things you may want to cover:
+The Gemfile contains the dependencies that are used, some added gems include omniauth, and bcrypt.
 
-* Ruby version
+# Young Papas Hobbies
 
-* System dependencies
+Is a website that allows for documentation of hobbies and projects within those hobbies.
 
-* Configuration
+# Features
 
-* Database creation
+Some of the features include complete CRUD for Projects and limited for Users,  and Hobbies. The objects are saved in the Database through ORM using ActiveRecord and rails migrations initialize tables and modifications. 
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

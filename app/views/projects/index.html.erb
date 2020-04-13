@@ -8,6 +8,7 @@
               <th>Project</th>
               <th>Description</th>
               <th>Hobby</th>
+              <th></th>              
           </tr>
         </thead>
 
@@ -18,6 +19,7 @@
             <td><%= link_to project.title, user_project_path(project.user, project) %></td>
             <td> <%= project.description%></td>
             <td><%= link_to project.hobby.title, project.hobby%> </td>
+            <td><%= link_to "Edit", edit_project_path(project)%> </td>
           </tr>
           
         </tbody>

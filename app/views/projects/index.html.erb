@@ -8,7 +8,9 @@
               <th>Project</th>
               <th>Description</th>
               <th>Hobby</th>
-              <th></th>              
+              <% if current_user == @user%>
+              <th></th> 
+              <%end%>             
           </tr>
         </thead>
 
@@ -19,7 +21,9 @@
             <td><%= link_to project.title, user_project_path(project.user, project) %></td>
             <td> <%= project.description%></td>
             <td><%= link_to project.hobby.title, project.hobby%> </td>
+            <% if current_user == @user%>
             <td><%= link_to "Edit", edit_project_path(project)%> </td>
+            <%end%>             
           </tr>
           
         </tbody>

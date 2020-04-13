@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
     def welcome
+        @user = User.most_active.first
     end
     
     def new

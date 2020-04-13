@@ -12,4 +12,6 @@ Is a website that allows for documentation of hobbies and projects within those 
 
 Some of the features include complete CRUD for Projects and limited for Users,  and Hobbies. The objects are saved in the Database through ORM using ActiveRecord and rails migrations initialize tables and modifications. 
 
+Ruby on Rails REST HTTP requests are implemented using Rails MVC model.
+
 

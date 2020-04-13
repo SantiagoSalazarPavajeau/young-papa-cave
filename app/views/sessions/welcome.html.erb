@@ -1,14 +1,53 @@
 
-    <h1> Welcome to Young Papas Hobbies! </h1>
-    <h2> Where young fathers can document their hobbies and projects.</h2>
-
-    <h2> View </h2>
-    <h2> <%= link_to " Projects/Hobbies ", hobbies_path%>  </h2>
-    <h3> created by fellow young fathers </h3>
-    <h3> Featured Hobbyist: <%= link_to @user.username, @user%>
+    
+  
 
 
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center ">Welcome to Young Papas Hobbies!</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Where young fathers can document their hobbies and projects.</h5>
+      </div>
+      <div class="row center">
+        <%= link_to " Projects/Hobbies ", hobbies_path, class: "btn-large waves-effect waves-light black"%>
+      </div>
+      <br><br>
 
+    </div>
+  </div>
 
+<div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="icon-block">
+            <h2 class="center black-text"><i class="material-icons">thumb_up</i></h2>
+            <h5 class="center">Get inspiration</h5>
+
+            <p class="light">View projects created by fellow young fathers and get started adding your own projects.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m6">
+          <div class="icon-block">
+            <h2 class="center black-text"><i class="material-icons">favorite</i></h2>
+            <h5 class="center">Featured Hobbyist</h5>
+
+            <p class="light"><%= link_to @user.username, @user%></p>
+          </div>
+        </div>
+
+        
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+
+ 
 
 

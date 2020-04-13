@@ -3,6 +3,13 @@ class User < ApplicationRecord
     has_many :hobbies, through: :projects
     has_secure_password
     validates :username, uniqueness: true
+
+    def self.most_active
+        where("id = #{Project.count_by_user.sort_by{|k,v| [-v, k]}.first.first}")
+    end
+
+
+
     
 
     # before_create :email_user_about_signup

@@ -16,6 +16,11 @@ class Project < ApplicationRecord
 
     validate :is_title_case
     before_validation :make_title_case
+
+    # model class method
+    def self.count_by_user
+        all.group(:user_id).count
+    end
  
     private
     def is_title_case

@@ -45,7 +45,8 @@ class ProjectsController < ApplicationController
         if @project.save
             redirect_to user_project_path(current_user, @project)
         else
-            redirect_to edit_project_path(@project), notice: 'Could not update the project: It needs a title, a 50 character description and a hobby it belongs to'
+            flash[:notice] = 'Could not update the project: It needs a title, a 50 character description and a hobby it belongs to'
+            render 'edit'
         end
     end
 

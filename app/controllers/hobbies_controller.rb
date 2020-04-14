@@ -5,7 +5,12 @@ class HobbiesController < ApplicationController
     end
 
     def show
-        @hobby = Hobby.find(params[:id])
+        if Hobby.find(params[:id])
+            @hobby = Hobby.find(params[:id])
+        else
+            redirect_to hobbies_path
+        end
+
     end
 
     def destroy

@@ -1,7 +1,7 @@
    <br>
     <%= link_to 'Back', hobbies_path, class: "btn blue-grey left"%> <br><br>
 
-<div id="profile-page-header" class="card blue-grey">
+<div id="profile-page-header" class="card z-depth-3 blue-grey">
                 <div class="card-content">
                   <div class="row">                    
                     <div class="col s6 offset-s2">                        
@@ -46,8 +46,8 @@
                 </div>
             </div>
 
-
-
+<% if !@user.projects.empty?%>
+<div class="container grey lighten-5 z-depth-4">
 
     <table class="centered highlight">
         <thead>
@@ -78,3 +78,10 @@
                 
     <%end%>
 </table>
+<% else%>
+
+<%= link_to 'Add new project', new_user_project_path(@user) %>
+
+<%end%>
+
+</div>

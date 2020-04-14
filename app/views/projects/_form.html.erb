@@ -1,3 +1,6 @@
+
+
+
 <%= form_for @project do |f|%>
 
     <%=f.label :hobby_title%>
@@ -9,7 +12,6 @@
         </datalist>
     <br><br><br>
 
-    Project
     <%=f.label :title%>
     <%= f.text_field :title%>
     <br><br>
@@ -17,9 +19,13 @@
     <%=f.label :description%>
     <%= f.text_area :description%>
     <br><br>
-
     <%if flash[:notice]%>
+        <div class="container red lighten-4">
+            <div class="row">
     **** <%=  flash[:notice] %> ****
+            </div>
+        </div>
+
     <br><br>
 
     <%end%>
@@ -27,3 +33,5 @@
     <%= f.submit%>
 
 <% end%>
+
+

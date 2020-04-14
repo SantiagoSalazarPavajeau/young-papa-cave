@@ -1,6 +1,6 @@
 <h2><%=@hobby.title%> </h2>
 
-<% if !@hobby.projects%>
+<% if @hobby.projects.empty?%>
     <%= link_to 'Delete Hobby', hobby_path(@hobby), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%>
 <% end%>
 

@@ -2,6 +2,7 @@ class Project < ApplicationRecord
     belongs_to :user
     belongs_to :hobby
     has_many :project_updates
+    has_one_attached :image
     validates :title, presence: true
     validates :description, presence: true, length: {minimum: 25}
 

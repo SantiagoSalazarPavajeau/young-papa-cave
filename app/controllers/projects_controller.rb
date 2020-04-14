@@ -44,6 +44,7 @@ class ProjectsController < ApplicationController
     def update
         @project = Project.find(params[:id])
         @project.update(project_params)
+        # @project.image.attach(params[:image])
         if @project.save
             redirect_to user_project_path(current_user, @project)
         else
@@ -61,7 +62,7 @@ class ProjectsController < ApplicationController
     private
 
     def project_params
-        params.require(:project).permit(:title, :description, :hobby_title)
+        params.require(:project).permit(:title, :description, :hobby_title, :image)
     end
 
     # def set_project

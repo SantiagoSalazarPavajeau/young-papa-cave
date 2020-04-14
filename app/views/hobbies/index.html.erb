@@ -19,7 +19,7 @@
         <tbody>
           <tr>
             <td><%= link_to project.title, project, class: "black-text"%></td>
-            <td><%= link_to project.user.username, user_projects_path(project.user, project.user.projects), class: "black-text"%></td>
+            <td><%= link_to project.user.username, project.user, class: "black-text"%></td>
             <td><%= link_to project.hobby.title, project.hobby, class: "waves-effect waves-light btn blue-grey"%> </td>
           </tr>
           

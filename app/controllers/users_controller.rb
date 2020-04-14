@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        set_user
+        redirect_to user_projects_path(set_user, set_user.projects)
     end
 
     private

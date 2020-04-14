@@ -24,7 +24,9 @@ class ProjectsController < ApplicationController
         if @project.save
             redirect_to user_project_path(current_user, @project)
         else
-            redirect_to new_user_project_path(current_user), notice: 'The project needs a title, a 50 character description and a hobby it belongs to'
+            flash[:notice] = 'The project needs a title, a 50 character description and a hobby it belongs to'
+            #redirect_to new_user_project_path(current_user)
+            render 'new'
         end
         #use "hobby_title" to create a hobby it seems its already creating a hobby
     end

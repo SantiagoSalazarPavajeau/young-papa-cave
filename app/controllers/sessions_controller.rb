@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
 
     def welcome
+        if session[:user_id]
+            session.delete :user_id
+        end
         @user = User.most_active.first
     end
     

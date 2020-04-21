@@ -44,6 +44,7 @@
                     <% if current_user == @user%>
 
                         <%= link_to 'Add new project', new_user_project_path(@user) %>
+                        <%= link_to 'Delete Profile', user_path(@user), method: :delete, data: { confirm: 'Are you certain you want to delete your profile?' }%>
 
                     <% end %>
                     </p>

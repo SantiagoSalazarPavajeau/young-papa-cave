@@ -22,10 +22,16 @@ class UsersController < ApplicationController
         redirect_to user_projects_path(set_user, set_user.projects)
     end
 
+    def destroy
+        session.delete :user_id
+        set_user.delete 
+        redirect_to root_path
+    end
+
     private
 
     def user_params
-        params.require(:user).permit(:username, :email, :password)
+        params.require(:user).permit(:username, :email, :bio, :password)
     end
 
     def set_user

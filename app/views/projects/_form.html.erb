@@ -10,6 +10,7 @@
                 <option value="<%= hobby.title%> ">
             <%end%>
         </datalist>
+        <%#redo as nested form / collection_select%>
     <br><br><br>
 
     <%=f.label :title%>
@@ -18,9 +19,12 @@
 
     <%=f.label :description%>
     <%= f.text_area :description%>
-
+<br><br>
     <%=f.label :image%>
-    <%= f.file_field :image%>
+    <%= f.file_field :image%> 
+    <br> or <br>
+    <%=f.label :image_url%>
+    <%= f.text_field :image_url%>
 
     <br><br>
     <%if flash[:notice]%>

@@ -31,7 +31,7 @@
                 <div class="card-reveal">
                     <p>
                       <span class="card-title grey-text text-darken-4"><%=@user.username%> <i class="mdi-navigation-close right"></i></span>
-                      <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i><%=link_to 'Projects', user_projects_path(@user)%></span>
+                      <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i></span>
                     </p>
 
                     <p><%=@user.bio%></p>
@@ -39,7 +39,10 @@
                     <p><i class="cyan-text text-darken-2"></i> 
                     <% if current_user == @user%>
 
-                        <%= link_to 'Add new project', new_user_project_path(@user) %>
+                        <%= link_to 'Add new project', new_user_project_path(@user), class: "btn blue-grey" %>
+<br><br>
+                        <%= link_to 'Delete Profile', @user, method: :delete, data: { confirm: 'Are you certain you want to delete your profile?' }, class: "btn blue-grey"%>
+
 
                     <% end %>
                     </p>
@@ -85,10 +88,13 @@
 
 <%end%>
 <br><br>
-                    <% if current_user == @user%>
-
-                        <%= link_to 'Delete Profile', @user, method: :delete, data: { confirm: 'Are you certain you want to delete your profile?' }, class: "btn blue-grey"%>
-
-                    <% end %>
+                  
 
 </div>
+<% if current_user == @user%>
+
+     <%= link_to 'Add new project', new_user_project_path(@user), class: "btn blue-grey" %>
+
+
+
+ <% end %>

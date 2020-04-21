@@ -3,6 +3,7 @@ class User < ApplicationRecord
     has_many :hobbies, through: :projects
     has_secure_password
     validates :username, uniqueness: true
+    validates :password, length: {minimum: 7}
 
     def self.most_active
         where("id = #{Project.count_by_user.sort_by{|k,v| [-v, k]}.first.first}")

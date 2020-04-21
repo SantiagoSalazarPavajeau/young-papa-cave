@@ -13,7 +13,8 @@ class UsersController < ApplicationController
             redirect_to user_path(@user)
             #UserMailer.with(user: @user).welcome_email.deliver_later
         else
-            render :new
+            flash[:notice] = "The password has to be at least 7 characters"
+            render 'new'
         end
 
     end

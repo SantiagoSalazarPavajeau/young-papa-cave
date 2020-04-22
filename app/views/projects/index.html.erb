@@ -81,20 +81,18 @@
                 
     <%end%>
 </table>
-<% else%>
-
-<%= link_to 'Add new project', new_user_project_path(@user), class: "btn blue-grey" %>
 
 
 <%end%>
 <br><br>
-                  
 
-</div>
 <% if current_user == @user%>
 
      <%= link_to 'Add new project', new_user_project_path(@user), class: "btn blue-grey" %>
 
 
-
+<br><br>
  <% end %>
+                  
+
+</div>

@@ -36,9 +36,10 @@
         <div class="col s12 m6">
           <div class="icon-block">
             <h2 class="center blue-grey-text"><i class="material-icons">favorite</i></h2>
-            <h5 class="center">Featured Hobbyist</h5>
-
-            <p class="light"><%= link_to @user.username, @user%></p>
+            <h5 class="center">Featured Hobbyists</h5>
+            <% @top_3_users.each do |user|%>
+            <p class="light"><%= link_to user.username, user%></p>
+            <%end%>
           </div>
         </div>
 

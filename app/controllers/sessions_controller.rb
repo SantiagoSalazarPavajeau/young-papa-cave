@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
         if session[:user_id]
             session.delete :user_id
         end
-        @user = User.most_active.first
+        @top_3_users = User.most_active
     end
     
     def new

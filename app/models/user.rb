@@ -6,10 +6,12 @@ class User < ApplicationRecord
     validates :password, length: {minimum: 7}
 
     def self.most_active
-        where("id = #{Project.count_by_user.sort_by{|k,v| [-v, k]}.first.first}")
+        order(projects_count: :desc).limit(3)
+        #where("id = #{Project.count_by_user.sort_by{|k,v| [-v, k]}.first.first}") # descending project count[ [1,2][2,1]]
     end
 
-
+    # top 3
+    # counter cache
 
     
 

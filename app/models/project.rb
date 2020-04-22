@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-    belongs_to :user
+    belongs_to :user, counter_cache: true
     belongs_to :hobby
     has_many :project_updates
     has_one_attached :image
@@ -9,7 +9,7 @@ class Project < ApplicationRecord
    
 
     def hobby_title=(title)
-        self.hobby = Hobby.find_or_create_by(title: title)
+        self.hobby = Hobby.find_or_create_by(title: title.strip)
     end
 
     def hobby_title
@@ -21,7 +21,7 @@ class Project < ApplicationRecord
 
     # model class method
     def self.count_by_user
-        all.group(:user_id).count
+        all.group(:user_id).count # [1, 5]
     end
  
     private

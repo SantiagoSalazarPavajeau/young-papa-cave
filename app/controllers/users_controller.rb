@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        redirect_to user_projects_path(set_user, set_user.projects)
+        redirect_to user_projects_path(set_user)
     end
 
     def destroy

@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
     
     def show
         @project = Project.find(params[:id])
+        @project_update = ProjectUpdate.new
     end
 
     def new

@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     resources :projects, only: [:show, :index, :new]
   end
 
-  resources :projects
+  resources :projects do
+    resources :project_updates
+  end
   resources :hobbies
   resources :users
 

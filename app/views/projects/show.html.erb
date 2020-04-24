@@ -14,10 +14,24 @@
 
 <img src="<%= @project.image_url%> ">
 
+<% @project.project_updates.each do |project_update|%>
+    <p><%= project_update.description%></p>
+<%end%>
+
+<%= form_for @project_update, url: project_project_updates_url(@project) do |f| %>
+
+    <%=f.text_field :description%>
+
+    
+
+    <%=f.submit%>
+
+<%end%>
+
 
 <br><br>
 <% if owner?%>
-    <%= link_to 'Add an update to Your Project', edit_project_path(@project)%><br>
+    <%= link_to 'Add an update to Your Project', new_project_project_update_path(@project)%><br>
     <%= link_to 'Edit Your Project', edit_project_path(@project)%><br>
     <%= link_to 'Delete Project', project_path(@project), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%>
 <% end%>

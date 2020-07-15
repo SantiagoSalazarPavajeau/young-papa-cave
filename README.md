@@ -1,8 +1,26 @@
 # README
 
+# Getting Started:
+
+Clone repository into local machine by running 
+
+```
+git clone git@github.com:SantiagoSalazarPavajeau/young_papas_hobbies.git
+```
+
+Cd into project directory and run 
+
+```
+rails db:migrate
+rails db:seed
+rails server
+```
+
+The app should be running in your local environment at http://localhost:3000/.
+
 This project uses Rails 6.0.2.2 and ruby 2.6.1p33. 
 
-The Gemfile contains the dependencies that are used, some added gems include omniauth, and bcrypt.
+The Gemfile contains the standard dependencies for a rails app and some added gems include omniauth, and bcrypt.
 
 # Young Papas Hobbies
 

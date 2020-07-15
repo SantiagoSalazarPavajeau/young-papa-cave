@@ -1,36 +1,71 @@
 <%= link_to 'Back', user_projects_path(@project.user), class: "btn blue-grey left"%>
 
-<div class="container">
+<div class="container z-depth-3">
+
+
 <h1><%= @project.title %> Project </h1>
  
- 
+ <div class="row ">
+        <div class="container ">
+        
 <p><%= @project.description %></p>
 
 <% if @project.image.attached?%>
 
-<%=image_tag url_for(@project.image)%>
+<%=image_tag url_for(@project.image), height: '300', width: '400' %>
 
 <%end%>
 
-<img src="<%= @project.image_url%> ">
+
+<% if !@project.image_url || !@project.image_url.empty?  %>
+
+<img src="<%= @project.image_url%> " height="300" width="400">
+
+<%end%>
+
 
 <% @project.project_updates.each do |project_update|%>
-    <p><%= project_update.description%></p>
+    <p><%= project_update.description%>    
+    
+    <%= link_to 'Delete', project_update_path(project_update), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } if owner?%>
+</p>
+<% if project_update.image.attached?%>
+
+<%=image_tag url_for(project_update.image)%>
+
 <%end%>
 
+<% if project_update.image.attached?%>
+
+<%=image_tag url_for(project_update.image), height: '300', width: '400' %>
+
+<%end%>
+
+
+<img src="<%= project_update.image_url%>" height="300" width="400">
+<%end%>
+
+ <% if owner?%>
+
+
 <%= form_for @project_update, url: project_project_updates_url(@project) do |f| %>
-
-    <%=f.text_field :description%>
-
     
+    <%=f.label "Whats new?(add a project update and new image):"%>
+    <%=f.text_area :description%>
+
+    <%=f.label "Upload an image"%>
+    <%= f.file_field :image%> 
+    <br> or <br>
+    <%=f.label "Paste an image URL here"%>
+    <%= f.text_field :image_url %>
 
     <%=f.submit%>
 
 <%end%>
-
+ </div>
+ </div>
 
 <br><br>
-<% if owner?%>
     <%= link_to 'Add an update to Your Project', new_project_project_update_path(@project)%><br>
     <%= link_to 'Edit Your Project', edit_project_path(@project)%><br>
     <%= link_to 'Delete Project', project_path(@project), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }%>

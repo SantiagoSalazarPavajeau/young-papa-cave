@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   resources :projects do
     resources :project_updates
   end
+
+  resources :project_updates
   resources :hobbies
   resources :users
 

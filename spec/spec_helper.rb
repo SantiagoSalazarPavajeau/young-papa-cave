@@ -14,6 +14,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
+require 'omniauth'
 
 RSpec.configure do |config|
   require 'capybara/rspec'

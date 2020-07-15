@@ -1,4 +1,7 @@
 require 'rails_helper'
+require_relative 'helpers/omniauth'
+require 'omniauth'
+
 
 # Specs in this file have access to a helper object that includes
 # the HobbiesHelper. For example:

@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+require_relative "../lib/financial_analysis"
+
+FinancialAnalysis::CLI.new.start
+
+# To do list:
+# 1. Set object attributes from json/array of hashes
+#      - autocreate attributes in balance sheet, income statement, company(maybe from profile response)
+#  2. Decision about listing companies when starting the program
+#  3. Figure out how to retrieve the company info using either a number or the name, to avoid the use of the ticker.
+  
